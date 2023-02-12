@@ -1,0 +1,21 @@
+The Finger protocol, RFC 1288.
+
+"Finger is based on the Transmission Control Protocol, using TCP port
+79 decimal (117 octal).  The local host opens a TCP connection to a
+remote host on the Finger port.  An RUIP becomes available on the
+remote end of the connection to process the request.  The local host
+sends the RUIP a one line query based upon the Finger query
+specification, and waits for the RUIP to respond.  The RUIP receives
+and processes the query, returns an answer, then initiates the close
+of the connection.  The local host receives the answer and the close
+signal, then proceeds closing its end of the connection."
+
+
+finger是Twisted文档的一个经典例子。
+1. 拒绝连接。 什么都不做，程序空等。
+2. 接受新连接。接受连接之后什么都不做，程序空等。
+3. 主动断开连接。
+4. 读取用户名，然后断开连接。
+5. 读取用户名，输出错误信息，然后断开连接。
+6. 从空的UserMap里查找用户。
+7. 往UserMap里添加一个用户。
